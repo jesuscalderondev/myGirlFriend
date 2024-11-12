@@ -65,7 +65,7 @@ function buildCalendar(month, specialDays = {}, year=2024) {
     const w30 = [3, 5, 8, 10];
 
     const monthObj = document.createElement("div");
-    monthObj.setAttribute("class", "calendar bg-transluce bg-transluce-rose hidden");
+    monthObj.setAttribute("class", "calendar bg-transluce bg-transluce-primary hidden");
     calendars.appendChild(monthObj);
     const title = document.createElement("h1");
     title.textContent = `${months[month]}`;
@@ -119,13 +119,13 @@ function buildCalendar(month, specialDays = {}, year=2024) {
     }
 }
 
-buildCalendar(0, { "29": "Recuerdo el primer mensaje, ese día estaba decidido a escribirle porque tus ojos me tenían encantado, desde antes de entablar las primeras conversaciones, la había visto un par de veces, como 3 o 4 tal vez. siempre tenía una cara muy seria y pensaba que me gustaba mucho ese carácter fuerte, que me gustaba esa mirada fría que tenía, casi siempre dando la impresión de ser muy malgeniada, quién pensaría que detrás de esa mirada escondía tantas cosas." })
+buildCalendar(0, { "29": "" })
 
-buildCalendar(1, { "25": "Este día nos dimos nuestro primer beso, recuerdo que estaba muy nervioso, cuando me acerqué a besarla, pero tenía los ojos tan brillantes, que simplemente no podía dejar de mirarla antes de acerlo, me acerqué y sólo pasó, sin duda alguna uno de nuestros mis momentos favoritos." });
+buildCalendar(1, { "25": "" });
 
 buildCalendar(3, {"14" : "", "21" : "", "28" : ""})
 
-buildCalendar(9, {"6" : "Fue el primero de mis cumpleaños que pasaba con ella, casi nunca me gusta estar rodeado de personas, pero ella, ella ha sido la excepción en muchas cosas y eso lo amerita, realmente la extraño cuando no está y quisiera que de ahora en adelante, pasaramos mucho tiempo juntos."})
+buildCalendar(9, {"6" : ""})
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

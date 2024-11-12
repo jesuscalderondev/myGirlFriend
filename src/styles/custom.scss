@@ -1,9 +1,9 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import url('./css/uicons-regular-rounded.css');
 
-$primary : #C48CB3;
+$primary : #83A6CE; 
 $secondary: #0D1E4C;
-$terteary: #83A6CE;
+$terteary: #C48CB3;
 $solid: #0B1B32;
 $lightRose: #E5C9D7;
 
@@ -175,7 +175,7 @@ footer{
 
         h1{
             text-align: center;
-            background-color: rgba($danger, .8);
+            background-color: rgba($primary, 1);
             border-radius: 16px 16px 0 0;
             color: $white;
         }
@@ -188,7 +188,7 @@ footer{
         }
 
         .special{
-            background-color: rgba($danger, .8);
+            background-color: rgba($primary, .8);
             border-radius: 30px;
             color: $white;
             transition: all ease .2s;
