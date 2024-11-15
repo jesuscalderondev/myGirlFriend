@@ -65,7 +65,7 @@ function buildCalendar(month, specialDays = {}, year=2024) {
     const w30 = [3, 5, 8, 10];
 
     const monthObj = document.createElement("div");
-    monthObj.setAttribute("class", "calendar bg-transluce bg-transluce-primary hidden");
+    monthObj.setAttribute("class", "calendar bg-transluce bg-transluce-rose hidden");
     calendars.appendChild(monthObj);
     const title = document.createElement("h1");
     title.textContent = `${months[month]}`;
@@ -119,13 +119,17 @@ function buildCalendar(month, specialDays = {}, year=2024) {
     }
 }
 
-buildCalendar(0, { "29": "" })
+buildCalendar(0, { "29": "Recuerdo el primer mensaje, ese día estaba decidido a escribirle porque tus ojos me tenían encantado, desde antes de entablar las primeras conversaciones, la había visto un par de veces, como 3 o 4 tal vez. siempre tenía una cara muy seria y pensaba que me gustaba mucho ese carácter fuerte, que me gustaba esa mirada fría que tenía, casi siempre dando la impresión de ser muy malgeniada, quién pensaría que detrás de esa mirada escondía tantas cosas." })
 
-buildCalendar(1, { "25": "" });
+buildCalendar(1, { "25": "Este día nos dimos nuestro primer beso, recuerdo que estaba muy nervioso, cuando me acerqué a besarla, pero tenía los ojos tan brillantes, que simplemente no podía dejar de mirarla antes de acerlo, me acerqué y sólo pasó, sin duda alguna uno de nuestros mis momentos favoritos." });
 
-buildCalendar(3, {"14" : "", "21" : "", "28" : ""})
+buildCalendar(3,
+    {
+        "14" : "Comenzamos a vernos más seguido y con planes más tranquilos.",
+        "21" : "Las veces que nos veíamos comenzabamos a hablar, estar sentados y no hacer más nada que reirnos.",
+        "28" : "Aunque no eramos nada, pasabamos un poco más de tiempo, algo más de tiempo de calidad y ratos muy tranquilos."})
 
-buildCalendar(9, {"6" : ""})
+buildCalendar(9, {"6" : "Fue el primero de mis cumpleaños que pasaba con ella, casi nunca me gusta estar rodeado de personas, pero ella, ella ha sido la excepción en muchas cosas y eso lo amerita, realmente la extraño cuando no está y quisiera que de ahora en adelante, pasaramos mucho tiempo juntos."})
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -140,3 +144,28 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+var musicPlay = null;
+
+const musics = {
+    "propuesta" : new Audio("./src/music/propuesta.m4a"),
+    "cuidas" : new Audio("./src/music/cuidas.m4a")
+}
+const secctionsMusic = document.querySelectorAll('.music');
+
+const listened = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting){
+            if(musicPlay != null){
+                musicPlay.pause();
+            }
+            
+            musicPlay = musics[entry.target.id];
+            musicPlay.play();
+            console.log("Play");
+            
+        }
+    })
+})
+
+secctionsMusic.forEach((el) => listened.observe(el));
